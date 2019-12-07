@@ -7,9 +7,6 @@ const { sentryTransport } = sentryTestkit();
 Sentry.init({
   dsn: "https://dummy@sentry.io/dummy",
   transport: sentryTransport,
-  attachStacktrace: true,
-  integrations: integrations => integrations.filter(integration => integration.name !== "Breadcrumbs"),
-  environment: "development",
   beforeSend(event) {
     console.log("before send", event);
     return event;
